@@ -1,0 +1,6 @@
+<h1 class="title">Chatrooms</h1>
+<% @chatrooms.each do |chatroom| %>
+	<p><%= link_to chatroom.name, chatroom %> create at <%= chatroom.created_at.strftime("%m %d, %Y") %></p>
+<% end %>
+
+<%= link_to 'Create Chatroom', :controller => 'chatrooms', :action => 'new' %>
