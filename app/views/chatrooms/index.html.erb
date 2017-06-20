@@ -2,13 +2,18 @@
 <% if current_user %>
   <%= link_to('登出', destroy_user_session_path, :method => :delete) %> |
   <%= link_to('修改密碼', edit_registration_path(:user)) %>
+  <p>Hello <%= current_user.name %></p>
 <% else %>
   <%= link_to('註冊', new_registration_path(:user)) %> |
   <%= link_to('登入', new_session_path(:user)) %>
 <% end %>
 
 <% @chatrooms.each do |chatroom| %>
-	<p><%= link_to chatroom.name, chatroom %> create at <%= chatroom.created_at.strftime("%m %d, %Y") %></p>
+	<% if chatroom.user.include?(User.find(current_user.id)) %>
+		<p><%= link_to chatroom.name, chatroom %> created <%= chatroom.created_at.strftime("%m %d, %Y") %></p>
+	<% else %>
+		<p><strong><%= chatroom.name %></strong> created <%= chatroom.created_at.strftime("%m %d, %Y") %>  <%= link_to "Join", { :action => 'join', :id => chatroom.id } %></p>
+	<% end %>
 <% end %>
 
 <%= link_to 'Create Chatroom', :controller => 'chatrooms', :action => 'new' %>

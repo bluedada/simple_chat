@@ -1,2 +1,25 @@
 <h1 class="title"><%= @chatroom.name %></h1>
+
+<h3>Participants:</h3>
+<%= render partial: @chatroom.user %>
+
+<div id="messages" data-chatroom-id="<%= @chatroom.id %>">
+  <%= render partial: @chatroom.messages %>
+</div>
+
+<h3>Send a message:</h3>
+
+<hr>
+
+<%= form_for @message, url: '#' do |f| %>
+  <%= hidden_field_tag 'chatroom_id', @chatroom.id %>
+  <div class="form-group">
+    <%= f.label current_user.name %>
+    <%= f.text_area :body, class: 'form-control' %>
+    <small class="text-muted">From 1 to 1000 characters</small>
+  </div>
+  
+  <%= f.submit "Send", class: 'btn btn-primary btn-lg' %>
+<% end %>
+
 <p><%= link_to 'Back to index', chatrooms_path %></p>
