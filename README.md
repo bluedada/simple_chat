@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a simple chatroom application
 
-Things you may want to cover:
+* Ruby version: 2.2.4
+* Rails version: 5.1.1
+* Database using MySQL
 
-* Ruby version
+You will need to set your mysql user name and password in env.rb file
 
-* System dependencies
+There are some simple test spec written in BDD way in folder /test/features/
 
-* Configuration
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

@@ -1,17 +1,17 @@
 <h1 class="title"><%= @chatroom.name %></h1>
 
-<hr>
 <div class="panel panel-default">
   <% if @chatroom.messages.any? %>
-    <div class="panel-body" id="messages" data-chatroom=<%=@chatroom.id%>>
-      <%= render partial: 'messages/message', collection: @chatroom.messages%>
-    </div>
+    <hr>
+      <div class="panel-body" id="messages" data-chatroom=<%=@chatroom.id%>>
+        <%= render partial: 'messages/message', collection: @chatroom.messages%>
+      </div>
+    <hr>
   <%else%>
     <div class="panel-body hidden" id="messages">
     </div>
   <%end%>
 </div>
-<hr>
 
 <%= form_for @message, url: '#' do |f| %>
   <%= hidden_field_tag 'chatroom-id', @chatroom.id %>
