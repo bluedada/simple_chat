@@ -3,21 +3,21 @@ development:
   encoding: utf8mb4
   database: simple_chat_development
   host: localhost
-  username: root
-  password: password
+  username: <%= ENV['MYSQL_USER_NAME'] %>
+  password: <%= ENV['MYSQL_PASSWORD'] %>
 
 test:
   adapter: mysql2
   encoding: utf8mb4
   database: simple_chat_test
   host: localhost
-  username: root
-  password: password
+  username: <%= ENV['MYSQL_USER_NAME'] %>
+  password: <%= ENV['MYSQL_PASSWORD'] %>
 
 production:
   adapter: mysql2
   encoding: utf8mb4
   database: simple_chat_production
   host: localhost
-  username: root
-  password: password
+  username: <%= ENV['MYSQL_USER_NAME'] %>
+  password: <%= ENV['MYSQL_PASSWORD'] %>

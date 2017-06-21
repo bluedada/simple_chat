@@ -1,6 +1,11 @@
 class ChatroomsController < ApplicationController
 	def index
-		@chatrooms = Chatroom.all
+    @keyword = params[:keyword]
+		if params[:keyword]
+      @chatrooms = Chatroom.where( [ "name like ? or id like ?", "%#{@keyword}%", "#{@keyword}" ] )
+    else
+      @chatrooms = Chatroom.all
+    end
 	end
 
 	def new

@@ -8,6 +8,15 @@
   <%= link_to('登入', new_session_path(:user)) %>
 <% end %>
 
+<br>
+<%= form_tag chatrooms_path, :method => :get do %>
+  <%= text_field_tag "keyword", @keyword %>
+  <%= submit_tag "Search" %>
+  <small class="text-muted">Enter chatroom name or id</small>
+<% end %>
+<br>
+<hr>
+
 <% @chatrooms.each do |chatroom| %>
 	<% if chatroom.user.include?(User.find(current_user.id)) %>
 		<p><%= link_to chatroom.name, chatroom_path(chatroom) %> created <%= chatroom.created_at.strftime("%m %d, %Y") %></p>
@@ -16,4 +25,4 @@
 	<% end %>
 <% end %>
 
-<%= link_to 'Create Chatroom', :controller => 'chatrooms', :action => 'new' %>
+<%= button_to 'Create Chatroom', :controller => 'chatrooms', :action => 'new' %>

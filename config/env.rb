@@ -1,0 +1,2 @@
+ENV['MYSQL_USER_NAME'] = ''
+ENV['MYSQL_PASSWORD'] = ''
