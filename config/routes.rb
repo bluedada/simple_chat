@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
 	mount ActionCable.server => '/cable'
 	
+	post "chatrooms/join/:id", to: "chatrooms#join", as: 'join_chatroom'
+	
   devise_for :users
 	resources :chatrooms , only: [:new, :create, :show, :index, :join]
-	post "chatrooms/join" => "chatrooms#join"
 
 	root :to => "chatrooms#index"
 

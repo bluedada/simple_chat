@@ -13,6 +13,12 @@ class ChatroomsController < ApplicationController
 		@message = Message.new
 	end
 
+	 def update
+    @chatroom = Chatroom.find(params[:id])
+    @chatroom.update(chatroom_params)
+    redirect_to @chatroom
+  end
+
 	def create
 		@chatroom = Chatroom.new(chatroom_params)
 		user_chatroom_relation = UserChatroomship.new(:user => current_user, :chatroom => @chatroom)
@@ -27,7 +33,8 @@ class ChatroomsController < ApplicationController
 
 	def join
 		@chatroom = Chatroom.find(params[:id])
-		user_chatroom_relation = UserChatroomship.create(:user => current_user, :chatroom => @chatroom)
+		logger.debug("join chatroom': #{@chatroom}")
+	user_chatroom_relation = UserChatroomship.create(:user => current_user, :chatroom => @chatroom)
 		redirect_to @chatroom
 	end
 

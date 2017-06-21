@@ -2,13 +2,16 @@
 <html>
   <head>
     <title>SimpleChat</title>
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+	  <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
+    
+	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+	  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+		  <%= yield %>
+		</div>
   </body>
 </html>

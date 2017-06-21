@@ -10,10 +10,12 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-
-//= require rails-ujs
-//= require_tree .
-//= require jquery2
+//= require jquery
 //= require jquery_ujs
-//= require cable
 //= require turbolinks
+//= require rails-ujs
+//= require cable
+//= require bootstrap-sprockets
+//= require chatrooms
+//= require_tree ./channels
+// require_tree .

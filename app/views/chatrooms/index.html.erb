@@ -10,9 +10,9 @@
 
 <% @chatrooms.each do |chatroom| %>
 	<% if chatroom.user.include?(User.find(current_user.id)) %>
-		<p><%= link_to chatroom.name, chatroom %> created <%= chatroom.created_at.strftime("%m %d, %Y") %></p>
+		<p><%= link_to chatroom.name, chatroom_path(chatroom) %> created <%= chatroom.created_at.strftime("%m %d, %Y") %></p>
 	<% else %>
-		<p><strong><%= chatroom.name %></strong> created <%= chatroom.created_at.strftime("%m %d, %Y") %>  <%= link_to "Join", { :action => 'join', :id => chatroom.id } %></p>
+		<p><strong><%= chatroom.name %></strong> created <%= chatroom.created_at.strftime("%m %d, %Y") %>  <%= link_to "Join", { :action => 'join', :id => chatroom.id }, :method => :post %></p>
 	<% end %>
 <% end %>
 

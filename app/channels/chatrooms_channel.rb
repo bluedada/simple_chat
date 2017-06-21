@@ -9,7 +9,6 @@ class ChatroomsChannel < ApplicationCable::Channel
   end
 
   def send_message(data)
-  	Rails.logger.debug("data: #{@data}")
     current_user.messages.create!(body: data['message'], chatroom_id: data['chatroom_id'])
   end
 end
